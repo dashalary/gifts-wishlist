@@ -19,7 +19,7 @@ class ItemsController < ApplicationController
 
     post '/items' do
         if logged_in?
-            if params[:name].empty?
+            if params[:name].blank?
               redirect '/items/new'
             else
               @item = current_user.items.build(name: params[:name], price: params[:price], store: params[:store])
@@ -57,7 +57,7 @@ class ItemsController < ApplicationController
     patch '/items/:id' do
         @item = Item.find(params[:id])
             if logged_in? && !params[:name].blank?
-                @item.update(name: params[:name])
+                @item.update(name: params[:name], store: params[:store], price: params[:price])
                 @item.save
                 redirect "/items/#{@item.id}"
             else

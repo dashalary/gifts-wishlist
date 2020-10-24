@@ -1,0 +1,12 @@
+<form method="POST" action="/items/<%=@item.id%>">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+
+ <label for="name">Name</label>
+  <input type="text" name="name" value="<%=@item.name%>">
+ <label for="store">Sold at:</label>
+ <input type="text" name="store" value="<%=@item.store%>">
+<label for="price">Price:</label>
+<input type="integer" name="price" value="<%=@item.price%>">
+
+  <input type="submit" value="submit">
+</form>
