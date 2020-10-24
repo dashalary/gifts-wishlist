@@ -9,5 +9,12 @@ class CategoriesController < ApplicationController
         end
     end
 
+    get '/categories/new' do
+        if logged_in?
+            erb :'categories/new'
+        else
+            redirect '/sessions/login'
+        end
+    end
 
 end
