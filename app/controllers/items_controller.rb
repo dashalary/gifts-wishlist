@@ -67,7 +67,6 @@ class ItemsController < ApplicationController
 
     delete '/items/:id/delete' do
         @item = Item.find_by_id(params[:id])
-
         if logged_in? && @item.user == current_user
             @item.destroy
             redirect '/items'
