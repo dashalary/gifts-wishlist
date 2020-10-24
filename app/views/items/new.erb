@@ -1,0 +1,15 @@
+<% if logged_in? %>
+  <form action='/items' method="post">
+    Name:
+    <input type="text" name="name"><br>
+    Price:
+    <input type="integer" name="price"><br>
+    Sold at:
+    <input type="text" name="store"><br>
+    Add this item to your wishlist:
+    <input type="submit" name="submit" id="submit">
+  </form>
+
+  <% else %>
+      <h1> You Must Be Logged in to Add Items </h1>
+  <% end %>
