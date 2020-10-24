@@ -1,0 +1,11 @@
+# need to show a list of items in this particular category
+
+
+<div class="<% if @category.user == current_user %>click<% else %>no-click<% end %>">
+<div class="button" id="Edit Category"><a href="/categories/<%= @category.id %>/edit">Edit Category</a></div>
+
+<div class="button-2">
+  <form action="/categories/<%= @category.id %>/delete" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input class="submit" type="submit" value="Delete Category" id="Delete Category">
+  </form>

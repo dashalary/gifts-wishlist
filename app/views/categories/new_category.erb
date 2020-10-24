@@ -1,0 +1,12 @@
+<% if logged_in? %>
+  <form action='/category' method="post">
+    Name:
+    <input type="text" name="name"><br>
+
+    Create this category:
+    <input type="submit" name="submit" id="submit">
+  </form>
+
+  <% else %>
+      <h1> You Must Be Logged in to Create Item Categories </h1>
+  <% end %>
