@@ -9,3 +9,6 @@ get '/items/:id/edit' do
     end
     end
 end
+
+
+--do I need to show all categories in one file and also user's categories in another file? how would the latter work if some items could belong to someone else's category
