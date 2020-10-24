@@ -2,10 +2,9 @@ get '/items/:id/edit' do
     if !logged_in?
         redirect '/login'
     else
-        item = current_user.items.find(params[:id])
-    if item.user_id == current_user.id
-        erb :'items/edit_item'
-    else
+        if item = current_user.items.find(params[:id])
+            erb :'items/edit_item'
+        else
         redirect '/items'
     end
     end
