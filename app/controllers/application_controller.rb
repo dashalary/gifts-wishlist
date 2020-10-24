@@ -9,11 +9,7 @@ class ApplicationController < Sinatra::Base
     set :session_secret, "gifts_secret"
   end
 
-  get "/" do
-    erb :welcome
-  end
-
-
+ 
   helpers do
     def logged_in?
       !!session[:user_id]
