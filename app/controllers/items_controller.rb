@@ -43,4 +43,37 @@ class ItemsController < ApplicationController
         end
       end
 
+      get '/items/:id/edit' do
+        @item = Item.find_by_id(params[:id])
+        if logged_in? && @item.user_id == current_user.id
+          erb :'/items/edit_item'
+        elsif logged_in? && @item.user_id != current_user.id          
+          redirect '/items'
+        else          
+          redirect '/sessions/login'
+        end
+      end
+
+    patch '/items/:id' do
+        @item = Item.find(params[:id])
+            if logged_in? && !params[:name].blank?
+                @item.update(name: params[:name])
+                @item.save
+                redirect "/items/#{@item.id}"
+            else
+                redirect "/items/#{@item.id}/edit"
+            end
+    end
+
+    delete '/items/:id/delete' do
+        @item = Item.find_by_id(params[:id])
+
+        if logged_in? && @item.user == current_user
+            @item.destroy
+            redirect '/items'
+        else
+            redirect '/sessions/login'
+        end
+    end
+
 end
