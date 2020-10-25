@@ -1,9 +1,10 @@
-<h1><%if @item.user == current_user %>You<% else %><%= @item.user.username %><% end %> added this gift to a wishlist:</h1>
-
+<h1><%if @item.user == current_user %>You<% else %><%= @item.user.username %><% end %> have added this item to your wishlist:</h1>
+<br>
 
 <p>Name: <%= @item.name %></p>
 <p>Price: <%= @item.price %></p>
 <p>Sold at: <%= @item.store %></p>
+<p>Category: <%= @item.category %></p>
 
 
 <div class="<% if @item.user == current_user %>click<% else %>no-click<% end %>">
@@ -14,5 +15,6 @@
     <input type="hidden" name="_method" value="delete">
     <input class="submit" type="submit" value="Delete Item" id="Delete Item">
   </form>
+  <div class="button-3" id="Go Back"><a href="/items">Go Back to the Wishlist</a></div>
 </div>
 </div>
