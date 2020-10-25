@@ -1,4 +1,6 @@
 <p>Welcome, <%= current_user.username %>!</p><br>
-<p>Here is your current gifts wishlist:</p><br>
-
+<p>Here are the items from your wishlist:</p><br>
+<% @items.each do |item| %>
+<%= item.name %><br>
+<% end %>
 
