@@ -1,9 +1,10 @@
 <div class="container">
-<h1> Welcome to Gifts Wishlist </h1>
+<h1> Welcome to Gifts Wishlist </h1><br>
 <nav>
   <% if logged_in? %>
 <p>Welcome, <%=current_user.username %></p>
-    <a href="/items/new"> Create your own wishlist </a>
+    <a href="/items/new"> Create your own wishlist </a><br>
+    <br>
     <a href="/logout"> Log Out </a>
 
   <% else %>
