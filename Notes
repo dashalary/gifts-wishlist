@@ -10,5 +10,10 @@ get '/items/:id/edit' do
     end
 end
 
+
+@items.each_with_index do |b, i|
+    #{i+1}. #{b.name}
+    end
+
 --need more buttons for app navigation 
 --do I need to show all categories in one file and also user's categories in another file? how would the latter work if some items could belong to someone else's category
