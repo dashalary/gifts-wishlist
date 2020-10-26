@@ -6,7 +6,6 @@ Your items in the <% @category %> category: <br>
 <br>
 
 <div class="button" id="Edit Category"><a href="/categories/<%= @category.id %>/edit">Edit Category</a></div><br>
-
 <div class="button-2">
   <form action="/categories/<%= @category.id %>/delete" method="post">
     <input type="hidden" name="_method" value="delete">

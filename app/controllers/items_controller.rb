@@ -45,7 +45,7 @@ class ItemsController < ApplicationController
       end
 
       get '/items/:id/edit' do
-        @item = Item.find_by_id(params[:id])
+        @item = current_user.items.find_by_id(params[:id]) 
         @categories = Category.all
         if logged_in? && @item.user_id == current_user.id #this way user can only edit an item that he added
           erb :'/items/edit_item'
