@@ -1,0 +1,7 @@
+Category.create(name: "Tech")
+Category.create(name: "Beauty")
+Category.create(name: "Household Items")
+Category.create(name: "Clothing")
+Category.create(name: "Accessories")
+Category.create(name: "Art")
+Category.create(name: "Other")
