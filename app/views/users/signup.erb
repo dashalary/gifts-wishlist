@@ -1,40 +1,19 @@
-<h1>Sign Up</h1>
+<h3>Sign Up</h3>
+<br>
 <p>
   Create a username and a password and start making your own gifts wishlist.
 </p>
+<br>
 <form action="/signup" method="post">
-
-  <table>
-    <tr>
-      <td class="col-1">
-        <label>Username:</label>
-      </td>
-      <td class="textbox">
-        <input type="text" name="username" id="username">
-      </td>
-    </tr>
-    <tr>
-      <td class="col-1">
-        <label>Email:</label>
-      </td>
-      <td class="textbox">
-        <input type="text" name="email" id="email">
-      </td>
-    </tr>
-    <tr>
-      <td class="col-1">
-        <label>Password:</label>
-      </td>
-      <td class="textbox">
-        <input type="password" name="password" id="password">
-      </td>
-    </tr>
-  </table>
-  <p>
-    <input class="submit" type="submit" value="Sign Up" id="submit">
-  </p>
+<div class="form-group">
+    <label for="email">Email address</label>
+    <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" id="password">
+  </div>
+  <button type="submit" class="btn btn-primary">Sign Up</button><br>
+  <br>
 </form>
-
-<p>
-  <a href="/login">If you already have an account, log in here!</a>
-</p>
