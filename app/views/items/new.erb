@@ -10,8 +10,12 @@
     <input type="text" name="store"><br>
     <br>
     Category:
-    <input type="radio" name="category"><br>
     <br>
+    <br>
+    <% @categories.each do |c| %>
+    <input type="checkbox" name="category_id" id="<%= c.id %>" value="<%= c.id %>"><%= c.name %><br>
+    <br>
+    <% end %>
     <br>
     <input type="submit" name="submit" id="submit">
   </form>

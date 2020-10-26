@@ -11,7 +11,10 @@
 <input type="integer" name="price" value="<%=@item.price%>"><br>
 <br>
 <label for="category">Category:</label>
-<input type="text" name="category" value="<%=@item.category%>"><br>
+<% @categories.each do |c| %>
+    <input type="checkbox" name="category_id" id="<%= c.id %>" value="<%= c.id %>"><%= c.name %><br>
+    <br>
+    <% end %>
 <br>
 
   <input type="submit" value="Edit"><br>

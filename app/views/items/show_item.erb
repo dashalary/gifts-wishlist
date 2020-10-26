@@ -4,7 +4,7 @@
 <p>Name: <%= @item.name %></p>
 <p>Price: <%= @item.price %></p>
 <p>Sold at: <%= @item.store %></p>
-<p>Category: <%= @item.category %></p>
+<p>Category: <%= @item.category.name %></p>
 
 
 <div class="<% if @item.user == current_user %>click<% else %>no-click<% end %>">

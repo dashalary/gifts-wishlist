@@ -11,6 +11,7 @@ class ItemsController < ApplicationController
 
     get '/items/new' do
         if logged_in?
+            @categories = Category.all
             erb :'items/new'
         else
             redirect '/sessions/login'
@@ -22,7 +23,8 @@ class ItemsController < ApplicationController
             if params[:name].blank?
               redirect '/items/new'
             else
-              @item = current_user.items.build(name: params[:name], price: params[:price], store: params[:store])
+                # binding.pry
+              @item = current_user.items.build(name: params[:name], price: params[:price], store: params[:store], category_id: params[:category_id])
               if @item.save
                 redirect '/items'
               else
@@ -36,7 +38,7 @@ class ItemsController < ApplicationController
 
     get '/items/:id' do
         if logged_in?
-          @item = Item.find_by_id(params[:id])
+          @item = Item.find_by_id(params[:id]) 
           erb :'/items/show_item'
         else        
           redirect '/sessions/login'
@@ -45,6 +47,7 @@ class ItemsController < ApplicationController
 
       get '/items/:id/edit' do
         @item = Item.find_by_id(params[:id])
+        @categories = Category.all
         if logged_in? && @item.user_id == current_user.id #this way user can only edit an item that he added
           erb :'/items/edit_item'
         elsif logged_in? && @item.user_id != current_user.id          
@@ -57,7 +60,7 @@ class ItemsController < ApplicationController
     patch '/items/:id' do
         @item = Item.find(params[:id])
             if logged_in? && !params[:name].blank?
-                @item.update(name: params[:name], store: params[:store], price: params[:price])
+                @item.update(name: params[:name], store: params[:store], price: params[:price], category_id: params[:category_id])
                 @item.save
                 redirect "/items/#{@item.id}"
             else
