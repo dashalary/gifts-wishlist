@@ -1,1 +1,7 @@
 <p>Welcome, <%= current_user.username %></p>
+<p>Here are your item categories: </p>
+<% @categories.each do |c| %>
+<a href="categories/<%= c.id %>"><%= c.name %></a><br>
+<br>
+<% end %>
+<p>Click on a category you'd like to learn more about or <a href="/categories/new">add a new category.</p>

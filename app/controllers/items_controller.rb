@@ -23,7 +23,6 @@ class ItemsController < ApplicationController
             if params[:name].blank?
               redirect '/items/new'
             else
-                # binding.pry
               @item = current_user.items.build(name: params[:name], price: params[:price], store: params[:store], category_id: params[:category_id])
               if @item.save
                 redirect '/items'
@@ -38,7 +37,7 @@ class ItemsController < ApplicationController
 
     get '/items/:id' do
         if logged_in?
-          @item = Item.find_by_id(params[:id]) 
+          @item = current_user.items.find_by_id(params[:id]) 
           erb :'/items/show'
         else        
           redirect '/sessions/login'

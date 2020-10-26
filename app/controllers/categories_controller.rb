@@ -1,16 +1,17 @@
 class CategoriesController < ApplicationController
 
-    # get '/categories' do
-    #     if logged_in?
-    #         @categories = Category.all
-    #         erb :'categories/categories'
-    #     else
-    #         redirect '/sessions/login'
-    #     end
-    # end
+    get '/categories' do
+        if logged_in?
+            @categories = Category.all
+            erb :'categories/categories'
+        else
+            redirect '/sessions/login'
+        end
+    end
 
     get '/categories/new' do
         if logged_in?
+            # @categories = Category.all
             erb :'categories/new'
         else
             redirect '/sessions/login'
@@ -29,6 +30,50 @@ class CategoriesController < ApplicationController
                 redirect '/categories/new'
               end
             end
+        else
+            redirect '/sessions/login'
+        end
+    end
+
+    get '/categories/:id' do
+        if logged_in?
+          @category = current_user.categories.find_by_id(params[:id])
+           # have to check if that category is mine otherwise reroute
+           @items = current_user.items.select {|a| a.id} #my items in that category
+          erb :'/categories/show'
+        else        
+          redirect '/sessions/login'
+        end
+    end
+
+    get '/categories/:id/edit' do
+        @category = Category.find_by_id(params[:id])
+        if logged_in? && @item.user_id == current_user.id #this way user can only edit an item that he added
+          erb :'/categories/edit'
+        elsif logged_in? && @item.user_id != current_user.id          
+          redirect '/categories'
+        else          
+          redirect '/sessions/login'
+        end
+    end
+
+    patch '/categories/:id' do
+        @item = Item.find_by_id(params[:id])
+        @category = Category.find(params[:category_id])
+            if logged_in? && !params[:name].blank?
+                @category.update(name: params[:name])
+                @category.save
+                redirect "/categories/#{@category.id}"
+            else
+                redirect "/categories/#{@category.id}/edit"
+            end
+    end
+
+    delete '/categories/:id/delete' do
+        @category = Category.find_by_id(params[:category_id])
+        if logged_in? && @item.user == current_user
+            @category.destroy
+            redirect '/categories'
         else
             redirect '/sessions/login'
         end
