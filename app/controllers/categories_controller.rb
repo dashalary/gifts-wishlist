@@ -11,7 +11,7 @@ class CategoriesController < ApplicationController
 
     get '/categories/new' do
         if logged_in?
-            # @categories = Category.all
+            @categories = Category.all
             erb :'categories/new'
         else
             redirect '/sessions/login'
@@ -23,7 +23,7 @@ class CategoriesController < ApplicationController
             if params[:name].blank?
               redirect '/categories/new'
             else
-              @category = current_user.category.build(name: params[:name])
+              @category = current_user.categories.build(name: params[:name])
               if @category.save
                 redirect '/categories'
               else
