@@ -42,8 +42,7 @@ class CategoriesController < ApplicationController
         #    @items = current_user.items.select {|a| a.id} #my items in that category
             erb :'categories/show'
            else 
-            redirect '/items/new'
-            # redirect '/categories/:category_id/items/new'
+            redirect '/categories/:category_id/items/new'
            end
         else        
           redirect '/login'

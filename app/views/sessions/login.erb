@@ -1,27 +1,18 @@
 <br>
 <br>
-<div class="card text-center w-75">
- <div class="card-header">
- <br>
 <h3>Login</h3><br>
-</div>
- <div class="card-body">
 <form action="/login" method="POST">
-<div class="form-group">
-<div class="text-left">
-    <label for="username">Username:</label>
-    <input type="username" class="form-control" id="username">
-  </div>
-  </div>
-  <div class="form-group">
-  <div class="text-left">
-    <label for="password">Password:</label>
-    <input type="password" class="form-control" id="password">
-    <br>
-    <button type="submit" class="btn btn-primary">Submit</button><br>
-  </div>
-  </div>
+  <label>Username:</label>
+  <td class="textbox">
+    <input type="text" name="username" id=":username">
+  </td>
+  <td class="col-1">
+  <label>Password:</label>
+  </td>
+  <td class="textbox">
+    <input type="password" name="password" id=":password">
+  </td>
   <br>
-  </div>
-  </div>
+  <br>
+   <input class="submit" type="submit" value="Log In" id="submit">
 </form>
