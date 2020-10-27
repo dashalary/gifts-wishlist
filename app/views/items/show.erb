@@ -2,12 +2,10 @@
 <div class="card-body">
 <h3 class="card-title"><%if @item.user == current_user %>You<% else %><%= @item.user.username %><% end %> have added this item to your wishlist:</h3>
 <br>
-
 <p>Name: <%= @item.name %></p>
 <p>Price: <%= @item.price %></p>
 <p>Sold at: <%= @item.store %></p>
 <p>Category: <%= @item.category.name %></p>
-
 
 <div class="<% if @item.user == current_user %>click<% else %>no-click<% end %>">
 <a href="/items/<%= @item.id %>/edit">Edit Item</a><br>

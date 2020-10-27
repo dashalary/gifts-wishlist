@@ -12,13 +12,26 @@ class ItemsController < ApplicationController
     get '/items/new' do
         if logged_in?
             @categories = Category.all
+            @category_selected = false 
             erb :'items/new'
         else
             redirect '/login'
         end
     end
 
+    get '/categories/:category_id/items/new' do 
+      if logged_in?
+        @category_selected = true 
+        @category_id = params[:category_id]
+        erb :'items/new'
+      else
+        redirect '/login'
+      end
+    end
+
+
     post '/items' do
+      # binding.pry
         if logged_in?
             if params[:name].blank?
               redirect '/items/new'
@@ -38,7 +51,7 @@ class ItemsController < ApplicationController
     get '/items/:id' do
         if logged_in?
           @item = current_user.items.find_by_id(params[:id]) 
-          erb :'/items/show'
+          erb :'items/show'
         else        
           redirect '/sessions/login'
         end
@@ -48,7 +61,7 @@ class ItemsController < ApplicationController
         @item = current_user.items.find_by_id(params[:id]) 
         @categories = Category.all
         if logged_in? && @item.user_id == current_user.id #this way user can only edit an item that he added
-          erb :'/items/edit_item'
+          erb :'items/edit_item'
         elsif logged_in? && @item.user_id != current_user.id          
           redirect '/items'
         else          

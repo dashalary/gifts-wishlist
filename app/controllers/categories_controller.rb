@@ -38,22 +38,24 @@ class CategoriesController < ApplicationController
     get '/categories/:id' do
         if logged_in?
           @category = current_user.categories.find_by_id(params[:id])
-           if @category
-           @items = current_user.items.select {|a| a.id} #my items in that category
-            erb :'/categories/show'
+            if @category
+        #    @items = current_user.items.select {|a| a.id} #my items in that category
+            erb :'categories/show'
            else 
             redirect '/items/new'
+            # redirect '/categories/:category_id/items/new'
            end
         else        
-          redirect '/sessions/login'
+          redirect '/login'
         end
     end
 
     get '/categories/:id/edit' do
         @category = current_user.categories.find_by_id(params[:id])
-        if logged_in? && @item.user_id == current_user.id #this way user can only edit an item that he added
-          erb :'/categories/edit'
-        elsif logged_in? && @item.user_id != current_user.id          
+        if @category && logged_in?
+        # if logged_in? && @category.user_id == current_user.id #this way user can only edit an item that he added
+          erb :'categories/edit'
+        elsif logged_in? && !@category         
           redirect '/categories'
         else          
           redirect '/sessions/login'

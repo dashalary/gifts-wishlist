@@ -1,10 +1,12 @@
-Your items in the <% @category %> category: <br>
+Your items in the <%= @category.name %> category: <br>
 <br>
-<% @items.each do |item| %>
+<% @category.items.each do |item| %>
+<% if current_user.items.include?(item)%>
 <%= item.name %><br><br>
 <% end %>
+<% end %>
 <br>
-
+<div class="button-3" id="Add Item In Category"><a href="/categories/<%= @category.id%>/items/new">Add Item To This Category</a></div>
 <div class="button" id="Edit Category"><a href="/categories/<%= @category.id %>/edit">Edit Category</a></div><br>
 <div class="button-2">
   <form action="/categories/<%= @category.id %>/delete" method="post">
