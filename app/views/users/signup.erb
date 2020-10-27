@@ -1,20 +1,35 @@
-<div class="text-center">
 <br>
-<h3>Sign Up</h3>
 <br>
-<p>Create a username and a password and start making your own gifts wishlist.</p>
+<div class="card text-center w-75">
+ <div class="card-header">
+ <br>
+<h4>Enter your sign up details.</h4><br>
 </div>
 <br>
+ <div class="card-body">
 <form action="/signup" method="post">
 <div class="form-group">
-    <label for="email">Email address</label>
-    <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+<div class="text-left">
+    <label for="username">Username:</label>
+    <input type="username" class="form-control" id="username">
+    <br>
+  </div>
+  </div>
+<div class="form-group">
+<div class="text-left">
+    <label for="email">Email address:</label>
+    <input type="email" class="form-control" id="email">
     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    <br>
+  </div>
   </div>
   <div class="form-group">
-    <label for="password">Password</label>
+    <div class="text-left">
+    <label for="password">Password:</label>
     <input type="password" class="form-control" id="password">
   </div>
-  <button type="submit" class="btn btn-primary">Sign Up</button><br>
+  </div>
+  <br>
+  <input type="submit" name="submit">
   <br>
 </form>

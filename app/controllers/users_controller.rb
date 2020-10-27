@@ -13,7 +13,8 @@ class UsersController < ApplicationController
     end
 
     post '/signup' do
-        if params[:username].empty? || params[:email].empty? || params[:password].empty?
+        
+        if params[:username].blank? || params[:email].blank? || params[:password].blank?
             redirect '/signup'
         else
             @user = User.create(:username => params[:username], :email => params[:email], :password => params[:password])
