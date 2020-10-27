@@ -1,4 +1,6 @@
-<h1><%if @item.user == current_user %>You<% else %><%= @item.user.username %><% end %> have added this item to your wishlist:</h1>
+<div class="card">
+<div class="card-body">
+<h3 class="card-title"><%if @item.user == current_user %>You<% else %><%= @item.user.username %><% end %> have added this item to your wishlist:</h3>
 <br>
 
 <p>Name: <%= @item.name %></p>
@@ -8,14 +10,17 @@
 
 
 <div class="<% if @item.user == current_user %>click<% else %>no-click<% end %>">
-<div class="button" id="Edit Item"><a href="/items/<%= @item.id %>/edit">Edit Item</a></div>
-
+<a href="/items/<%= @item.id %>/edit">Edit Item</a><br>
+<br>
 <div class="button-2">
   <form action="/items/<%= @item.id %>/delete" method="post">
     <input type="hidden" name="_method" value="delete">
     <input class="submit" type="submit" value="Delete Item" id="Delete Item">
   </form>
-  <div class="button-3" id="Go Back"><a href="/items">Go Back to the Wishlist</a></div>
+  <br>
+  <div class="button-3" id="Go Back"><a href="/items">Go Back to the Wishlist</a></div><br>
         <button type="submit" class="btn btn-light"><a href="/logout">Log Out?</a></button><br>
+</div>
+</div>
 </div>
 </div>

@@ -1,35 +1,26 @@
 <br>
+<h3>Enter your details to Sign Up</h3>
 <br>
-<div class="card text-center w-75">
- <div class="card-header">
- <br>
-<h4>Enter your sign up details.</h4><br>
-</div>
-<br>
- <div class="card-body">
 <form action="/signup" method="post">
-<div class="form-group">
-<div class="text-left">
-    <label for="username">Username:</label>
-    <input type="username" class="form-control" id="username">
-    <br>
-  </div>
-  </div>
-<div class="form-group">
-<div class="text-left">
-    <label for="email">Email address:</label>
-    <input type="email" class="form-control" id="email">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-    <br>
-  </div>
-  </div>
-  <div class="form-group">
-    <div class="text-left">
-    <label for="password">Password:</label>
-    <input type="password" class="form-control" id="password">
-  </div>
-  </div>
-  <br>
-  <input type="submit" name="submit">
-  <br>
+        <label>Username:</label>
+      <td class="textbox">
+        <input type="text" name="username" id=":username">
+      </td>
+        <label>Email:</label>
+      <td class="textbox">
+        <input type="text" name="email" id=":email">
+      </td>
+      <td class="col-1">
+        <label>Password:</label>
+      </td>
+      <td class="textbox">
+        <input type="password" name="password" id=":password">
+      </td>
+  <p>
+    <input class="submit" type="submit" value="Sign Up" id="submit">
+  </p>
 </form>
+
+<p>
+  <a href="/login">Already have an account? Log in here.</a>
+</p>

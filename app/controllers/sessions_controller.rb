@@ -14,9 +14,11 @@ class SessionsController < ApplicationController
           session[:user_id] = user.id
           redirect '/items'
         else
-          redirect '/signup'
+          redirect '/login'
         end
     end
+
+
 
     get '/logout' do
         session.clear

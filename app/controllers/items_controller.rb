@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
             @items = current_user.items.all
             erb :'items/items'
         else
-            redirect '/sessions/login'
+            redirect '/login'
         end
     end
 
@@ -14,7 +14,7 @@ class ItemsController < ApplicationController
             @categories = Category.all
             erb :'items/new'
         else
-            redirect '/sessions/login'
+            redirect '/login'
         end
     end
 
