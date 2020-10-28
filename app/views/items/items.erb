@@ -1,14 +1,18 @@
 <div class="card">
 <div class="card-body">
 <h3 class="card-title">Welcome, <%= current_user.username %>!</h3><br>
+<% if @items.empty? %>
+<p> Your wishlist is currently empty. <a href="/items/new">Click here to start adding items.</a></p>
+<% else %>
  <p class="card-text">Here are the items from your wishlist:</p><br>
 <% @items.each do |item| %>
 <a href="items/<%= item.id %>"><%= item.name %></a><br>
 <br>
 <% end %>
-<p>Click on an item you'd like to learn more about or <a href="/items/new">add a new item.</p>
+<p>Click on an item you'd like to learn more about or <a href="/items/new">add a new item.</a></p>
 <a href="/categories"> Click here to manage your item categories. </a><br>
 <br>
+<% end %>
 <button type="submit" class="btn btn-light"><a href="/logout">Log Out?</a></button><br>
 </div>
 </div>

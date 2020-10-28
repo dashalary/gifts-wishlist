@@ -1,8 +1,15 @@
-<form action='/categories' method="post">
+<form action='/categories' method="POST">
 <br>
-Category Name: <input type="text" name="name"><br>
+Select a category to add to your list of categories or add your own below. <br>
 <br>
-<input type="submit" name="submit" id="submit"><br>
+<% @categories.each do |c| %>
+<input type="checkbox" name="category_id" id="<%= c.id %>" value="<%= c.id %>"><%= c.name %><br>
+<br>
+<% end %>
+<br>
+Your Own Category Name: <input type="text" name="name"><br>
+<br>
+<input type="submit" value="Submit"><br>
 <br>
 <a href="/categories">Go Back</a>
 </form>

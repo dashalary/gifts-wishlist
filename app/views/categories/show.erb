@@ -8,7 +8,8 @@ Your items in the <%= @category.name %> category: <br>
 <% end %>
 <br>
 <div class="button-3" id="Add Item In Category"><a href="/categories/<% @category_id%>/items/new">Add Item To This Category</a></div>
-<div class="button" id="Edit Category"><a href="/categories/<% @category.id %>/edit">Edit Category</a></div><br>
+<div class="button" id="Edit Category"><a href="/categories/<% @category.id %>/edit">Edit Category</a></div>
+<a href="/categories">Go Back</a>
 <div class="button-2">
   <form action="/categories/<%= @category.id %>" method="post">
     <input type="hidden" name="_method" value="delete">

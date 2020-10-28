@@ -2,11 +2,11 @@
 <div class="card-body">
 <h3 class="card-title">Welcome, <%= current_user.username %>!</h3><br>
  <p class="card-text">Here are your item categories: </p><br>
-<% @categories.each do |c| %>
-<a href="categories/<%= c.id %>"><%= c.name %></a><br>
+<% current_user.categories.each do |c| %>
+<a href="/categories/<%= c.id %>"><%= c.name %></a><br>
 <br>
 <% end %>
-<p>Click on a category you'd like to learn more about, <a href="/categories/new">add a new category,</a> or <a href="/items">return to the Wishlist</a></p>
+<p>Click on a category to see or add items to that category, <a href="/categories/new">add a new category,</a> or <a href="/items">return to the Wishlist</a></p>
 <br>
 <button type="submit" class="btn btn-light"><a href="/logout">Log Out?</a></button><br>
 </div>
