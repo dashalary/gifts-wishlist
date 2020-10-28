@@ -2,10 +2,10 @@ class CategoriesController < ApplicationController
 
     get '/categories' do
         if logged_in?
-            @categories = Category.all
+            @categories = current_user.categories
             erb :'categories/categories'
         else
-            redirect '/sessions/login'
+            redirect '/login'
         end
     end
 
@@ -14,7 +14,7 @@ class CategoriesController < ApplicationController
             @categories = Category.all
             erb :'categories/new'
         else
-            redirect '/sessions/login'
+            redirect '/login'
         end
     end
 
@@ -31,18 +31,20 @@ class CategoriesController < ApplicationController
               end
             end
         else
-            redirect '/sessions/login'
+            redirect '/login'
         end
     end
 
     get '/categories/:id' do
         if logged_in?
-          @category = current_user.categories.find_by_id(params[:id])
-            if @category
+          @category = current_user.categories.find_by(id: params[:id])
+            # binding.pry
+          if @category
         #    @items = current_user.items.select {|a| a.id} #my items in that category
             erb :'categories/show'
            else 
-            redirect '/categories/:category_id/items/new'
+            # binding.pry
+            redirect "/categories/#{@category.id}/items/new"
            end
         else        
           redirect '/login'
@@ -57,7 +59,7 @@ class CategoriesController < ApplicationController
         elsif logged_in? && !@category         
           redirect '/categories'
         else          
-          redirect '/sessions/login'
+          redirect '/login'
         end
     end
 
@@ -72,13 +74,15 @@ class CategoriesController < ApplicationController
             end
     end
 
-    delete '/categories/:id/delete' do
-        @category = current_user.categories.find_by_id(params[:id])
-        if logged_in? && @item.user == current_user
-            @category.destroy
+    delete '/categories/:id' do
+        if logged_in?
+            @category = current_user.categories.find_by_id(params[:id])  #looking inside user's collection
+            if @category
+                @category.destroy
+            end
             redirect '/categories'
         else
-            redirect '/sessions/login'
+            redirect '/login'
         end
     end
 

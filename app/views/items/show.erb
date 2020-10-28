@@ -11,7 +11,7 @@
 <a href="/items/<%= @item.id %>/edit">Edit Item</a><br>
 <br>
 <div class="button-2">
-  <form action="/items/<%= @item.id %>/delete" method="post">
+  <form action="/items/<%= @item.id %>" method="post">
     <input type="hidden" name="_method" value="delete">
     <input class="submit" type="submit" value="Delete Item" id="Delete Item">
   </form>

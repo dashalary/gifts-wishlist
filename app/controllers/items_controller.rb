@@ -22,7 +22,7 @@ class ItemsController < ApplicationController
     get '/categories/:category_id/items/new' do 
       if logged_in?
         @category_selected = true 
-        @category_id = params[:category_id]
+        @category_id = params[:category_id].to_i
         erb :'items/new'
       else
         redirect '/login'
@@ -36,7 +36,8 @@ class ItemsController < ApplicationController
             if params[:name].blank?
               redirect '/items/new'
             else
-              @item = current_user.items.build(name: params[:name], price: params[:price], store: params[:store], category_id: params[:category_id])
+              @item = current_user.items.build(name: params[:name], price: params[:price], store: params[:store], category_id: params[:category_id].to_i)
+              # binding.pry
               if @item.save
                 redirect '/items'
               else
@@ -50,6 +51,7 @@ class ItemsController < ApplicationController
 
     get '/items/:id' do
         if logged_in?
+          # binding.pry
           @item = current_user.items.find_by_id(params[:id]) 
           erb :'items/show'
         else        

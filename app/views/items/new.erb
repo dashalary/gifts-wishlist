@@ -1,32 +1,33 @@
 <div class="card">
 <div class="card-body">
 <% if logged_in? %>
+
   <form action='/items' method="post">
-    Name:
-    <input type="text" name="name"><br>
-    <br>
-    Price:
-    <input type="integer" name="price"><br>
-    <br>
-    Sold at:
-    <input type="text" name="store"><br>
-    <br>
-    <% if @category_selected == false %>
-    Category:
-    <br>
-    <br>
-    <% @categories.each do |c| %>
-    <input type="checkbox" name="category_id" id="<%= c.id %>" value="<%= c.id %>"><%= c.name %><br>
-    <br>
-    <% end %>
-    <% else %>
-    <input type="hidden" name="category_id" value="<%= @category_id %>">
-    <% end %>
-    <br>
+      Name:
+      <input type="text" name="name"><br>
+      <br>
+      Price:
+      <input type="integer" name="price"><br>
+      <br>
+      Sold at:
+      <input type="text" name="store"><br>
+      <br>
+        <% if @category_selected == false %>
+        Category:
+        <br>
+        <br>
+        <% @categories.each do |c| %>
+        <input type="checkbox" name="category_id" id="<%= c.id %>" value="<%= c.id %>"><%= c.name %><br>
+        <br>
+        <% end %>
+        <% else %>
+        <input type="hidden" name="category_id" value="<%= @category_id %>">
+        <% end %>
+        <br>
     <input type="submit" value="Add Item to This Category">
   </form>
   <% else %>
       <h1> You Must Be Logged in to Add Items </h1>
   <% end %>
-  </div>
+</div>
 </div>
