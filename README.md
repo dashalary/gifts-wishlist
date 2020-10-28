@@ -4,7 +4,7 @@ Welcome to Gifts Wishlist, an interactive Sinatra application.
 ## Installation
 
 
-You will need to install the necessary gems to run the application. Please run the following line in your terminal:
+You will need to install the necessary gems to run the application, such as Bcrypt and Shotgun. Please run the following line in your terminal:
 
 
 
