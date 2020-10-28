@@ -5,7 +5,8 @@ Welcome to Gifts Wishlist, an interactive Sinatra application.
 You will need to install the necessary gems to run the application. Please run the following line in your terminal:
 
 
- $ bundle install
+
+ ``$ bundle install``
 
 
  ## Usage
