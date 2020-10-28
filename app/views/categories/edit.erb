@@ -1,8 +1,6 @@
 <form method="POST" action="/categories/<%=@category.id%>">
   <input id="hidden" type="hidden" name="_method" value="patch">
-
  <label for="name">Name:</label>
  <input type="text" name="name" value="<%=@category.name%>">
-
   <input type="submit" value="submit">
 </form>

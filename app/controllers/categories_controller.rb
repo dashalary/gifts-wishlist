@@ -2,7 +2,7 @@ class CategoriesController < ApplicationController
 
     get '/categories' do
         if logged_in?
-            @categories = current_user.categories
+            @categories = current_user.categories.uniq
             erb :'categories/categories'
         else
             redirect '/login'
@@ -40,7 +40,6 @@ class CategoriesController < ApplicationController
           @category = current_user.categories.find_by(id: params[:id])
             # binding.pry
           if @category
-        #    @items = current_user.items.select {|a| a.id} #my items in that category
             erb :'categories/show'
            else 
             # binding.pry

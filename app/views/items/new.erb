@@ -1,7 +1,6 @@
 <div class="card">
 <div class="card-body">
 <% if logged_in? %>
-
   <form action='/items' method="post">
       Name:
       <input type="text" name="name"><br>
@@ -23,8 +22,9 @@
         <% else %>
         <input type="hidden" name="category_id" value="<%= @category_id %>">
         <% end %>
-        <br>
-    <input type="submit" value="Add Item to This Category">
+      <input type="submit" value="Add Item to This Category"><br>
+      <br>
+    <a href="/items">Go Back</a>
   </form>
   <% else %>
       <h1> You Must Be Logged in to Add Items </h1>
