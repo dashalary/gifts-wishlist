@@ -1,4 +1,6 @@
-Welcome to Gifts Wishlist, an interactive Sinatra application that allows users to sign up, log in and out, and create their own gifts wishlists by utilising the data provided by multiple Ruby classes. Users can create browse public item categories, add and modify their own categories and items, add items directly to specific categories, and more.
+Welcome to Gifts Wishlist!
+
+This is an interactive Sinatra application that allows users to sign up, log in/out, and create their own gifts wishlists by utilising the data provided by multiple Ruby classes. Users can create browse public item categories, add and modify their own categories and items, add items directly to specific categories, and more.
 
 
 ## Installation
